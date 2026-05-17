@@ -1,14 +1,14 @@
 {
   "site": {
     "title": "Brand Live Pro — Amazon Live Streams That Build Your Brand, Not Someone Else's",
-    "description": "Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Book a $150 audit.",
+    "description": "Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Free strategy call.",
     "domain": "https://brandlivepro.com",
     "email": "hello@brandlivepro.com"
   },
 
   "nav": {
     "logo_text": "Brand Live Pro",
-    "cta_text": "Book Audit"
+    "cta_text": "Book Call"
   },
 
   "hero": {
@@ -17,9 +17,9 @@
     "h1_accent": "your brand",
     "h1_part2": "— not someone else's.",
     "subheader": "We run live shopping streams directly from your brand-registered Amazon account. You keep every follower, every data point, and every attribution — permanently. Not borrowed. Not rented. Owned.",
-    "cta_primary": "Book Your $150 Audit",
+    "cta_primary": "Book Free Strategy Call",
     "cta_secondary": "See How It Works",
-    "meta": ["30-min strategy call", "Written audit doc", "Credited to Pilot Month"],
+    "meta": ["30-min 1-on-1 call", "Honest fit assessment", "No commitment"],
     "metrics": [
       { "value": "17×", "label": "Higher purchase rate during live" },
       { "value": "$9,056", "label": "Revenue from a single stream" },
@@ -140,7 +140,7 @@
     "items": [
       {
         "q": "How do we know this actually works for our category?",
-        "a": "The $150 audit answers this before you commit. We pull your catalog, identify hero ASINs, and benchmark your live-stream-readiness against the categories we've already run. You get a written strategy doc showing the 10-stream content plan, expected Sessions lift, and the specific ASINs we'd anchor on. If the audit shows weak fit, we tell you."
+        "a": "Book a free 30-minute call. We pull your catalog, identify hero ASINs, and assess your live-stream-readiness against the categories we've already run. We walk you through the 10-stream content plan, expected Sessions lift, and specific ASINs we'd anchor on. If the fit is weak, we tell you straight — no pressure, no followup."
       },
       {
         "q": "What's the realistic timeline for seeing results?",
@@ -166,26 +166,26 @@
   },
 
   "pricing": {
-    "eyebrow": "Two Ways To Start",
-    "h2": "Audit first. Then decide if the Pilot makes sense.",
-    "description": "No long-term contract. No retainer trap. The audit gets credited back if you move forward.",
+    "eyebrow": "One Way To Start",
+    "h2": "Free strategy call. Then decide if the Pilot makes sense.",
+    "description": "No long-term contract. No retainer trap. No audit fee. Just a real conversation about fit.",
     "cards": [
       {
         "tag": "Start Here",
-        "name": "Audit & Strategy",
+        "name": "Free Strategy Call",
         "desc": "Best for: sellers evaluating whether Amazon Live fits their catalog.",
-        "price": "$150",
-        "period": "one-time",
+        "price": "Free",
+        "period": "30 minutes",
         "features": [
-          "30-minute strategy call",
-          "Catalog analysis & hero ASIN selection",
-          "Written 10-stream content plan",
-          "Expected Sessions lift estimate",
-          "Honest fit assessment (we'll tell you if it's wrong)",
-          "$150 credited back if you start the Pilot Month"
+          "30-minute 1-on-1 call",
+          "Catalog analysis & hero ASIN assessment",
+          "Honest fit evaluation (we'll tell you if it's wrong)",
+          "No written audit needed — we explain on the call",
+          "If it fits, we discuss Pilot Month next steps",
+          "If it doesn't fit, we tell you and move on"
         ],
-        "cta_text": "Book the Audit",
-        "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit"
+        "cta_text": "Book Free Call",
+        "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20Free%20Strategy%20Call"
       },
       {
         "tag": "Most Sellers Choose This",
@@ -212,8 +212,8 @@
   "final_cta": {
     "h2_part1": "The streams already work.",
     "h2_accent": "The question is whose account they build.",
-    "p": "Book the $150 audit. 30 minutes plus a written strategy doc. If the data says Amazon Live isn't your move, we'll tell you. If it is — you'll have the plan in your inbox before the call ends.",
-    "cta_text": "Book Your $150 Audit",
-    "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit"
+    "p": "Book a free strategy call. 30 minutes, no audit fee, no commitment. We assess whether Amazon Live fits your catalog. If it does — we discuss the Pilot Month. If it doesn't — we tell you straight.",
+    "cta_text": "Book Free Call",
+    "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20Free%20Strategy%20Call"
   }
 }
