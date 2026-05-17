@@ -1,0 +1,219 @@
+{
+  "site": {
+    "title": "Brand Live Pro — Amazon Live Streams That Build Your Brand, Not Someone Else's",
+    "description": "Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Book a $150 audit.",
+    "domain": "https://brandlivepro.com",
+    "email": "hello@brandlivepro.com"
+  },
+
+  "nav": {
+    "logo_text": "Brand Live Pro",
+    "cta_text": "Book Audit"
+  },
+
+  "hero": {
+    "eyebrow": "Fully Managed Amazon Live",
+    "h1_part1": "Amazon Live streams that build",
+    "h1_accent": "your brand",
+    "h1_part2": "— not someone else's.",
+    "subheader": "We run live shopping streams directly from your brand-registered Amazon account. You keep every follower, every data point, and every attribution — permanently. Not borrowed. Not rented. Owned.",
+    "cta_primary": "Book Your $150 Audit",
+    "cta_secondary": "See How It Works",
+    "meta": ["30-min strategy call", "Written audit doc", "Credited to Pilot Month"],
+    "metrics": [
+      { "value": "17×", "label": "Higher purchase rate during live" },
+      { "value": "$9,056", "label": "Revenue from a single stream" },
+      { "value": "$102K", "label": "Attributed in 6 months, one client" },
+      { "value": "3,660", "label": "New brand followers added" }
+    ]
+  },
+
+  "trust_bar": [
+    { "strong": "Brand Registry", "text": "required" },
+    { "strong": "Native Amazon", "text": "ecosystem" },
+    { "strong": "55%", "text": "branded search lift" },
+    { "strong": "36.1%", "text": "higher AOV from followers" },
+    { "strong": "$9K MRR", "text": "active book" }
+  ],
+
+  "problem": {
+    "eyebrow": "The Influencer Trap",
+    "h2": "The content works. The asset belongs to someone else.",
+    "description": "Most \"Amazon Live\" services run streams from an influencer's account. It looks fine until you ask the right questions: <em>who owns the followers when this ends?</em>",
+    "cards": [
+      {
+        "icon": "users",
+        "h3": "Influencer accounts borrow your audience.",
+        "p": "Every follower they earn streaming your products belongs to <em>them</em>. When the collaboration ends, the audience walks. You start over."
+      },
+      {
+        "icon": "chart",
+        "h3": "Data resets when they stop.",
+        "p": "Attribution, click-through, audience demographics — gone the moment they unlist. You can't optimize what you can't see, and you can't retarget what you don't own."
+      },
+      {
+        "icon": "clock",
+        "h3": "No team. No setup. No time.",
+        "p": "You don't want to buy a camera, train a host, write scripts, and learn the Amazon Live Creator app. You want the asset to exist, working, on your account — without you running it."
+      }
+    ]
+  },
+
+  "mechanism": {
+    "eyebrow": "How It Actually Works",
+    "h2_part1": "We run the stream",
+    "h2_accent": "from your account.",
+    "p1": "Brand Live Pro is operated as a managed extension of your team. We don't host on our channel. The stream broadcasts from your brand-registered Amazon account — using your logo, your products, your storefront.",
+    "p2": "Every viewer that follows, every click on the carousel, every conversion: tracked inside <strong>your</strong> Amazon analytics. The asset compounds in your account, not ours.",
+    "checklist": [
+      {
+        "bold": "Professional host",
+        "text": "vetted, on-camera, trained on Amazon Live mechanics and your product catalog"
+      },
+      {
+        "bold": "Scripted demo + Q&A",
+        "text": "every stream maps a use case, not a feature dump"
+      },
+      {
+        "bold": "Stream stays live forever",
+        "text": "indexed on your listings, driving Sessions long after broadcast"
+      },
+      {
+        "bold": "You see everything",
+        "text": "followers, watch hours, product CTR, attributed sales — all native to your account"
+      }
+    ],
+    "visual_stats": [
+      { "label": "Concurrent Viewers", "value": "847", "trend": "↑ 23%" },
+      { "label": "Product Clicks · This Stream", "value": "2,104", "trend": "↑ 41%" },
+      { "label": "New Brand Followers", "value": "312", "trend": "↑ 18%" }
+    ]
+  },
+
+  "proof": {
+    "eyebrow": "Real Numbers, Real Accounts",
+    "h2": "The lift shows up in the right place — your seller dashboard.",
+    "description": "Live stream attribution is well understood. Below are the specific numbers we look at when measuring whether content is doing its job inside Amazon.",
+    "cards": [
+      { "value": "17×", "label": "Purchase Rate Multiplier", "desc": "Buyers who engage during a live stream convert at 17× the baseline rate of standard listing traffic." },
+      { "value": "55%", "label": "Branded Search Lift", "desc": "Sustained brand-name searches increase as viewers carry the brand into future Amazon sessions." },
+      { "value": "$9,056", "label": "Single Stream Revenue", "desc": "One live broadcast drove $9,056 in attributed sales — directly tracked inside the brand's seller account." },
+      { "value": "$102K", "label": "6-Month Attributed Sales", "desc": "One client's stream library generated $102K in tracked revenue over six months. The streams keep working." },
+      { "value": "3,660", "label": "New Brand Followers", "desc": "All added inside the client's brand account — building a retargeting audience that compounds across launches." },
+      { "value": "36.1%", "label": "Higher AOV from Followers", "desc": "Returning brand followers spend 36.1% more per order than first-touch buyers — long-term margin you keep." },
+      { "value": "∞", "label": "Evergreen Content Library", "desc": "Every stream stays live, indexed to your listing — driving Sessions and Unit Session % long after the broadcast ends." },
+      { "value": "100%", "label": "Owned by Your Brand", "desc": "Every asset — followers, watch data, conversion attribution — lives in your account permanently." }
+    ]
+  },
+
+  "steps": {
+    "eyebrow": "The Process",
+    "h2": "Four steps. Then content runs.",
+    "description": "The Pilot Month is 4 weeks, 10 live streams. After kickoff, you don't touch the stream. We handle everything from production to post-stream analytics review.",
+    "items": [
+      { "week": "Week 1", "h3": "Audit & Strategy", "p": "30-minute call plus a written audit. We map your catalog, identify hero ASINs, and build the 10-stream content calendar around them." },
+      { "week": "Week 1", "h3": "Account Integration", "p": "We connect to your brand-registered account, vet a host that matches your category, and write the first scripts. All before broadcast." },
+      { "week": "Weeks 2–5", "h3": "10 Live Streams", "p": "Streams broadcast from your account on a fixed schedule. Product demos, live Q&A, real-time CTAs into the in-stream carousel." },
+      { "week": "Ongoing", "h3": "Reporting & Review", "p": "You get the metrics that actually matter — followers, watch hours, product CTR, Sessions lift, attributed sales — plus a monthly review." }
+    ]
+  },
+
+  "halo": {
+    "eyebrow": "The Halo Effect",
+    "h2": "One stream lifts your entire catalog — not just the featured ASIN.",
+    "p1": "When new followers attach to your brand, every product you list gets surfaced. Brand-name searches rise. Sessions on adjacent ASINs increase. The Amazon algorithm learns your catalog has demand depth.",
+    "p2": "This is why we focus on Sessions and Unit Session % — not just last-touch attributed sales. The real lift compounds across your store.",
+    "stat_value": "36.1%",
+    "stat_label": "Higher average order value from buyers who follow your brand vs. one-time buyers"
+  },
+
+  "comparison": {
+    "eyebrow": "Compare Honestly",
+    "h2": "Why the account the stream runs on matters more than the stream itself.",
+    "description": "Same content, three different setups. The difference is who owns the asset 12 months from now."
+  },
+
+  "faq": {
+    "eyebrow": "FAQ",
+    "h2": "The questions sellers actually ask before signing.",
+    "description": "Straight answers — no upsell, no fluff.",
+    "items": [
+      {
+        "q": "How do we know this actually works for our category?",
+        "a": "The $150 audit answers this before you commit. We pull your catalog, identify hero ASINs, and benchmark your live-stream-readiness against the categories we've already run. You get a written strategy doc showing the 10-stream content plan, expected Sessions lift, and the specific ASINs we'd anchor on. If the audit shows weak fit, we tell you."
+      },
+      {
+        "q": "What's the realistic timeline for seeing results?",
+        "a": "<strong>Week 1:</strong> audit, strategy doc, account integration, host vetting. <strong>Weeks 2–5:</strong> 10 streams broadcast on schedule. Direct attribution shows up within Amazon's 48-hour reporting window. <strong>Weeks 6+:</strong> the indexing effect compounds. Sessions and Unit Session % continue rising as streams stay live on your listings. Live attribution is fast — but the real lift comes from content compounding over time. We optimize on Sessions, not just last-touch."
+      },
+      {
+        "q": "Who are your hosts and what's their experience?",
+        "a": "Our hosts are vetted on three criteria: <strong>on-camera comfort, Amazon Live Creator app proficiency, and category fluency</strong>. Every host has run multiple paid streams for brands like yours. During account integration (Week 1), you review and approve the specific host assigned to your product before any broadcast goes live."
+      },
+      {
+        "q": "What's the ROI compared to spending the same on PPC?",
+        "a": "Different math. PPC pays for clicks that stop the moment you stop paying. Amazon Live streams stay indexed on your listings <strong>permanently</strong> — the same content keeps driving Sessions, follower growth, and conversion long after the $3K is spent. Single streams have produced $9,056 in attributed sales. One client tracked $102K across 6 months from their stream library. The streams become assets that keep producing."
+      },
+      {
+        "q": "What do I actually need on my end?",
+        "a": "Three things: <strong>(1)</strong> Brand Registry enrollment on your Amazon account. <strong>(2)</strong> Approved access for our team to stream from your brand account. <strong>(3)</strong> 30 minutes per month for the strategy review. That's it. Production, scripting, scheduling, hosting, post-stream reporting — all handled."
+      },
+      {
+        "q": "What happens after the Pilot Month?",
+        "a": "You see the data, the lift, and the asset. If it's working, we continue at $3K/month for the next cycle of streams. If it's not, you walk with the streams we've already produced — they stay live on your listings indefinitely. Either way, the content you've built belongs to you."
+      }
+    ]
+  },
+
+  "pricing": {
+    "eyebrow": "Two Ways To Start",
+    "h2": "Audit first. Then decide if the Pilot makes sense.",
+    "description": "No long-term contract. No retainer trap. The audit gets credited back if you move forward.",
+    "cards": [
+      {
+        "tag": "Start Here",
+        "name": "Audit & Strategy",
+        "desc": "Best for: sellers evaluating whether Amazon Live fits their catalog.",
+        "price": "$150",
+        "period": "one-time",
+        "features": [
+          "30-minute strategy call",
+          "Catalog analysis & hero ASIN selection",
+          "Written 10-stream content plan",
+          "Expected Sessions lift estimate",
+          "Honest fit assessment (we'll tell you if it's wrong)",
+          "$150 credited back if you start the Pilot Month"
+        ],
+        "cta_text": "Book the Audit",
+        "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit"
+      },
+      {
+        "tag": "Most Sellers Choose This",
+        "name": "Pilot Month",
+        "desc": "Best for: brands ready to build their first 10-stream content asset.",
+        "price": "$3,000",
+        "period": "4 weeks · 10 streams",
+        "featured": true,
+        "features": [
+          "10 live streams in 4 weeks",
+          "Vetted on-camera host (your approval)",
+          "Scripts, production, scheduling — fully managed",
+          "Streams broadcast from your brand account",
+          "All followers, data, attribution stay with you",
+          "Monthly metrics review (Sessions, Unit Session %, CTR, attributed sales)",
+          "Streams stay live on your listings permanently"
+        ],
+        "cta_text": "Start the Pilot",
+        "cta_link": "mailto:hello@brandlivepro.com?subject=Pilot%20Month%20Inquiry"
+      }
+    ]
+  },
+
+  "final_cta": {
+    "h2_part1": "The streams already work.",
+    "h2_accent": "The question is whose account they build.",
+    "p": "Book the $150 audit. 30 minutes plus a written strategy doc. If the data says Amazon Live isn't your move, we'll tell you. If it is — you'll have the plan in your inbox before the call ends.",
+    "cta_text": "Book Your $150 Audit",
+    "cta_link": "mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit"
+  }
+}

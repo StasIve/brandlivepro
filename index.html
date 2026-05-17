@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Live Pro — Amazon Live Streams That Build Your Brand, Not Someone Else's</title>
+<meta name="description" content="Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Book a $150 audit.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Brand Live Pro — Amazon Live Streams That Build Your Brand, Not Someone Else's">
+<meta property="og:description" content="Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Book a $150 audit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brandlivepro.com">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root {
+    --bg: #0a0f1e;
+    --bg-2: #0f1528;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-2: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-2: rgba(255, 255, 255, 0.14);
+    --text: #ffffff;
+    --text-muted: #8892a4;
+    --text-soft: #c4cad6;
+    --accent: #ff6b35;
+    --accent-2: #ff8c5a;
+    --accent-soft: rgba(255, 107, 53, 0.15);
+    --accent-border: rgba(255, 107, 53, 0.4);
+    --success: #4ade80;
+    --warn: #facc15;
+    --danger: #ef4444;
+
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    --container: 1180px;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  }
+
+  /* ============ RESET ============ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+  /* ============ BACKGROUND ATMOSPHERE ============ */
+  .atmosphere {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+  }
+  .orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    top: -200px; left: -200px;
+  }
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+    top: 30%; right: -200px;
+    opacity: 0.25;
+  }
+  .orb-3 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    bottom: -300px; left: 30%;
+    opacity: 0.18;
+  }
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ============ LAYOUT ============ */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 18px 0;
+    transition: backdrop-filter 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: saturate(140%) blur(18px);
+    -webkit-backdrop-filter: saturate(140%) blur(18px);
+    border-bottom-color: var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-dot {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.6; }
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ============ BUTTONS ============ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0f1e;
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 107, 53, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: var(--accent-2);
+  }
+  .btn-ghost {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-2);
+  }
+  .btn-ghost:hover {
+    background: var(--surface-2);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+  .btn-sm { padding: 10px 18px; font-size: 14px; }
+  .btn-lg { padding: 18px 32px; font-size: 16px; }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffae6a 50%, #fff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ============ SECTIONS ============ */
+  section { position: relative; z-index: 2; }
+  .section-pad { padding: 110px 0; }
+  .section-head { max-width: 760px; margin: 0 auto 64px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 20px; }
+  .section-head h2 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 18px;
+  }
+  .section-head p {
+    font-size: 18px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 160px 0 100px;
+    position: relative;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .eyebrow { margin-bottom: 28px; }
+  .hero h1 {
+    font-size: clamp(40px, 6.5vw, 76px);
+    margin-bottom: 28px;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub {
+    font-size: clamp(17px, 1.6vw, 20px);
+    color: var(--text-soft);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .hero-meta .dot { width: 4px; height: 4px; background: var(--text-muted); border-radius: 50%; }
+
+  /* HERO METRIC STRIP */
+  .metric-strip {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .metric-cell {
+    background: var(--bg-2);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .metric-value {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.2vw, 42px);
+    font-weight: 800;
+    color: #ff6b35 !important;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .metric-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* ============ TRUST BAR ============ */
+  .trust-bar {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+  }
+  .trust-row strong { color: var(--text); font-weight: 600; }
+
+  /* ============ PROBLEM SECTION ============ */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .problem-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+    background: var(--surface-2);
+  }
+  .problem-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--danger);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .problem-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .problem-card p {
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ============ MECHANISM (HOW IT WORKS) ============ */
+  .mech-bg { background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.04) 50%, transparent 100%); }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .mech-text h2 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    margin-bottom: 20px;
+  }
+  .mech-text p {
+    color: var(--text-soft);
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+  .mech-list {
+    list-style: none;
+    margin-top: 28px;
+    display: grid;
+    gap: 14px;
+  }
+  .mech-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--text-soft);
+    font-size: 15px;
+  }
+  .mech-list .check {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .mech-list strong { color: var(--text); font-weight: 600; }
+
+  .mech-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(79, 70, 229, 0.1));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .mech-visual::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--accent), transparent 50%);
+    border-radius: var(--radius-xl);
+    z-index: -1;
+    opacity: 0.4;
+  }
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--danger);
+    color: #fff;
+    padding: 5px 11px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+  }
+  .live-badge::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.35; } }
+
+  .visual-stat-stack { display: flex; flex-direction: column; gap: 18px; }
+  .visual-stat {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    backdrop-filter: blur(8px);
+  }
+  .visual-stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+  }
+  .visual-stat-value {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .visual-stat-value .up { color: var(--success); font-size: 14px; font-weight: 600; margin-left: 6px; }
+
+  /* ============ PROOF / RESULTS ============ */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .proof-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top left, var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .proof-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+  }
+  .proof-value {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5.5vw, 42px);
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .proof-label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .proof-desc {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ============ HOW IT WORKS (STEPS) ============ */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-num::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .step:nth-child(1) .step-num::before { content: "1"; }
+  .step:nth-child(2) .step-num::before { content: "2"; }
+  .step:nth-child(3) .step-num::before { content: "3"; }
+  .step:nth-child(4) .step-num::before { content: "4"; }
+  .step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .step p {
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ============ HALO EFFECT ============ */
+  .halo {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.06), rgba(79, 70, 229, 0.04));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .halo h2 {
+    font-size: clamp(28px, 3.8vw, 40px);
+    margin-bottom: 16px;
+  }
+  .halo p {
+    color: var(--text-soft);
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .halo .stat-callout {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-top: 24px;
+  }
+  .halo .stat-callout .v {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .halo .stat-callout .l {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  /* SVG visualization */
+  .halo-viz {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .halo-viz svg { width: 100%; height: auto; }
+
+  /* ============ COMPARISON TABLE ============ */
+  .compare-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+  .compare th, .compare td {
+    padding: 22px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  .compare th {
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  .compare th.highlight {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .compare td.highlight {
+    background: rgba(255, 107, 53, 0.04);
+    color: var(--text);
+    font-weight: 500;
+  }
+  .compare tr:last-child td { border-bottom: 0; }
+  .compare .row-label { font-weight: 600; color: var(--text); }
+  .compare .yes { color: var(--success); font-weight: 600; }
+  .compare .no { color: var(--danger); font-weight: 600; }
+  .compare .meh { color: var(--warn); font-weight: 600; }
+
+  /* ============ FAQ ============ */
+  .faq-grid {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    gap: 14px;
+  }
+  .faq {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .faq[open] { border-color: var(--accent-border); }
+  .faq summary {
+    padding: 24px 28px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--text);
+    transition: color 0.2s ease;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover { color: var(--accent); }
+  .faq .plus {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .faq[open] .plus { transform: rotate(45deg); background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .faq-body {
+    padding: 0 28px 24px;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .faq-body strong { color: var(--text); }
+
+  /* ============ PRICING / CTA SECTION ============ */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 42px 36px;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .price-card.featured {
+    background: linear-gradient(160deg, rgba(255, 107, 53, 0.12), rgba(255, 107, 53, 0.02));
+    border-color: var(--accent-border);
+  }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .price-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .price-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+  .price-num {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .price-num .small { font-size: 18px; color: var(--text-muted); font-weight: 500; margin-left: 4px; }
+  .price-features {
+    list-style: none;
+    margin: 28px 0 32px;
+    display: grid;
+    gap: 12px;
+  }
+  .price-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+  .price-features .check {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+  }
+  .price-card .btn { width: 100%; justify-content: center; }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.02));
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    padding: 80px 40px;
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-size: clamp(32px, 4.5vw, 48px);
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .final-cta p {
+    color: var(--text-soft);
+    font-size: 17px;
+    margin-bottom: 32px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .final-cta .btn { position: relative; }
+  .final-cta-note {
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    position: relative;
+  }
+
+  /* ============ AMAZON REPORT STYLE ============ */
+  .amazon-report {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .report-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #2a3a4a 0%, #1a2a3a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-video::before {
+    content: "▶";
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+  }
+  .report-video-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239, 68, 68, 0.95);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+  .report-video-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  .report-content {
+    padding: 32px;
+    color: #1a1a1a;
+  }
+  .report-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+  }
+  .report-meta {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+  .report-section {
+    margin-bottom: 28px;
+  }
+  .report-section:last-child {
+    margin-bottom: 0;
+  }
+  .report-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  .report-section-desc {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .report-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .metric-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  .metric-info-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: transparent;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: help;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 56px 0 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .footer-meta .logo { color: var(--text); margin-bottom: 4px; }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  /* ============ REVEAL ON SCROLL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1000px) {
+    .container { padding: 0 24px; }
+    .section-pad { padding: 80px 0; }
+    .metric-strip { grid-template-columns: repeat(2, 1fr); }
+    .problem-grid { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .mech-grid, .halo, .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .halo { padding: 40px 28px; }
+    .nav-links { display: none; }
+    .hero { padding: 130px 0 60px; }
+    .final-cta { padding: 56px 24px; }
+    .trust-row { gap: 24px; font-size: 12px; }
+  }
+  @media (max-width: 560px) {
+    .metric-strip { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .hero-cta { flex-direction: column; align-items: stretch; }
+    .hero-cta .btn { justify-content: center; }
+    .price-card { padding: 32px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Atmosphere -->
+<div class="atmosphere" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-dot"></span>
+      Brand Live Pro
+    </a>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#proof">Proof</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a href="#audit" class="btn btn-primary btn-sm">
+      Book Audit
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Fully Managed Amazon Live</span>
+      <h1>Amazon Live streams that build <span class="accent">your brand</span> — not someone else's.</h1>
+      <p class="hero-sub">
+        We run live shopping streams directly from your brand-registered Amazon account.
+        You keep every follower, every data point, and every attribution — permanently. Not borrowed.
+        Not rented. Owned.
+      </p>
+      <div class="hero-cta">
+        <a href="#audit" class="btn btn-primary btn-lg">
+          Book Your $150 Audit
+          <span class="arrow">→</span>
+        </a>
+        <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <div class="hero-meta">
+        <span>30-min strategy call</span>
+        <span class="dot"></span>
+        <span>Written audit doc</span>
+        <span class="dot"></span>
+        <span>Credited to Pilot Month</span>
+      </div>
+
+      <!-- Metric strip -->
+      <div class="metric-strip reveal">
+        <div class="metric-cell">
+          <div class="metric-value">17×</div>
+          <div class="metric-label">Higher purchase rate during live</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">$9,056</div>
+          <div class="metric-label">Revenue from a single stream</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">$102K</div>
+          <div class="metric-label">Attributed in 6 months, one client</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">3,660</div>
+          <div class="metric-label">New brand followers added</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-row">
+      <span><strong>Brand Registry</strong> required</span>
+      <span><strong>Native Amazon</strong> ecosystem</span>
+      <span><strong>55%</strong> branded search lift</span>
+      <span><strong>36.1%</strong> higher AOV from followers</span>
+      <span><strong>$9K MRR</strong> active book</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> The Influencer Trap</span>
+      <h2>The content works. The asset belongs to someone else.</h2>
+      <p>
+        Most "Amazon Live" services run streams from an influencer's account.
+        It looks fine until you ask the right questions: <em>who owns the followers when this ends?</em>
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Influencer accounts borrow your audience.</h3>
+        <p>Every follower they earn streaming your products belongs to <em>them</em>. When the collaboration ends, the audience walks. You start over.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18.7 8 13 13.7l-3-3L6 14.7"/></svg>
+        </div>
+        <h3>Data resets when they stop.</h3>
+        <p>Attribution, click-through, audience demographics — gone the moment they unlist. You can't optimize what you can't see, and you can't retarget what you don't own.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18.7 8 13 13.7l-3-3L6 14.7"/></svg>
+        </div>
+        <h3>No team. No setup. No time.</h3>
+        <p>You don't want to buy a camera, train a host, write scripts, and learn the Amazon Live Creator app. You want the asset to exist, working, on your account — without you running it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MECHANISM ============ -->
+<section class="section-pad mech-bg" id="how">
+  <div class="container">
+    <div class="mech-grid">
+      <div class="mech-text reveal">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> How It Actually Works</span>
+        <h2 style="margin-top: 20px;">We run the stream <span class="gradient-text">from your account.</span></h2>
+        <p>
+          Brand Live Pro is operated as a managed extension of your team. We don't host on our channel.
+          The stream broadcasts from your brand-registered Amazon account - using your logo, your products, your storefront.
+        </p>
+        <p>
+          Every viewer that follows, every click on the carousel, every conversion: tracked inside <strong>your</strong> Amazon analytics.
+          The asset compounds in your account, not ours.
+        </p>
+        <ul class="mech-list">
+          <li>
+            <span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Professional host:</strong> vetted, on-camera, trained on Amazon Live mechanics and your product catalog</span>
+          </li>
+          <li>
+            <span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Scripted demo + Q&amp;A:</strong> every stream maps a use case, not a feature dump</span>
+          </li>
+          <li>
+            <span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Stream stays live forever:</strong> indexed on your listings, driving Sessions long after broadcast</span>
+          </li>
+          <li>
+            <span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>You see everything: </strong>  followers, watch hours, product CTR, attributed sales — all native to your account</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mech-visual reveal">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <span class="live-badge">Live Now</span>
+          <span style="font-size: 12px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">From Your Account</span>
+        </div>
+        <div class="visual-stat-stack">
+          <div class="visual-stat">
+            <div class="visual-stat-label">Concurrent Viewers</div>
+            <div class="visual-stat-value">847<span class="up">↑ 23%</span></div>
+          </div>
+          <div class="visual-stat">
+            <div class="visual-stat-label">Product Clicks · This Stream</div>
+            <div class="visual-stat-value">2,104<span class="up">↑ 41%</span></div>
+          </div>
+          <div class="visual-stat">
+            <div class="visual-stat-label">New Brand Followers</div>
+            <div class="visual-stat-value">312<span class="up">↑ 18%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF / RESULTS ============ -->
+<section class="section-pad" id="proof">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Real Numbers, Real Accounts</span>
+      <h2>The lift shows up in the right place — your seller dashboard.</h2>
+      <p>
+        Live stream attribution is well understood. Below are the specific numbers we look at when measuring whether content is doing its job inside Amazon.
+      </p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <div class="proof-value">17×</div>
+        <div class="proof-label">Purchase Rate Multiplier</div>
+        <div class="proof-desc">Buyers who engage during a live stream convert at 17× the baseline rate of standard listing traffic.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">55%</div>
+        <div class="proof-label">Branded Search Lift</div>
+        <div class="proof-desc">Sustained brand-name searches increase as viewers carry the brand into future Amazon sessions.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">$9,056</div>
+        <div class="proof-label">Single Stream Revenue</div>
+        <div class="proof-desc">One live broadcast drove $9,056 in attributed sales — directly tracked inside the brand's seller account.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">$102K</div>
+        <div class="proof-label">6-Month Attributed Sales</div>
+        <div class="proof-desc">One client's stream library generated $102K in tracked revenue over six months. The streams keep working.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">3,660</div>
+        <div class="proof-label">New Brand Followers</div>
+        <div class="proof-desc">All added inside the client's brand account — building a retargeting audience that compounds across launches.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">36.1%</div>
+        <div class="proof-label">Higher AOV from Followers</div>
+        <div class="proof-desc">Returning brand followers spend 36.1% more per order than first-touch buyers — long-term margin you keep.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">∞</div>
+        <div class="proof-label">Evergreen Content Library</div>
+        <div class="proof-desc">Every stream stays live, indexed to your listing — driving Sessions and Unit Session % long after the broadcast ends.</div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-value">100%</div>
+        <div class="proof-label">Owned by Your Brand</div>
+        <div class="proof-desc">Every asset — followers, watch data, conversion attribution — lives in your account permanently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> The Process</span>
+      <h2>Four steps. Then content runs.</h2>
+      <p>The Pilot Month is 4 weeks, 10 live streams. After kickoff, you don't touch the stream. We handle everything from production to post-stream analytics review.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">Week 1</div>
+        <h3>Audit & Strategy</h3>
+        <p>30-minute call plus a written audit. We map your catalog, identify hero ASINs, and build the 10-stream content calendar around them.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">Week 1</div>
+        <h3>Account Integration</h3>
+        <p>We connect to your brand-registered account, vet a host that matches your category, and write the first scripts. All before broadcast.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">Weeks 2–5</div>
+        <h3>10 Live Streams</h3>
+        <p>Streams broadcast from your account on a fixed schedule. Product demos, live Q&A, real-time CTAs into the in-stream carousel.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">Ongoing</div>
+        <h3>Reporting & Review</h3>
+        <p>You get the metrics that actually matter — followers, watch hours, product CTR, Sessions lift, attributed sales — plus a monthly review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HALO EFFECT ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="halo reveal">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> The Halo Effect</span>
+        <h2 style="margin-top: 18px;">One stream lifts your entire catalog — not just the featured ASIN.</h2>
+        <p>
+          When new followers attach to your brand, every product you list gets surfaced.
+          Brand-name searches rise. Sessions on adjacent ASINs increase. The Amazon algorithm learns your catalog has demand depth.
+        </p>
+        <p>
+          This is why we focus on Sessions and Unit Session % — not just last-touch attributed sales.
+          The real lift compounds across your store.
+        </p>
+        <div class="stat-callout">
+          <div class="v">36.1%</div>
+          <div class="l">Higher average order value from buyers who follow your brand vs. one-time buyers</div>
+        </div>
+      </div>
+
+      <div class="halo-viz">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Outer halo rings -->
+          <circle cx="160" cy="160" r="150" fill="none" stroke="rgba(255,107,53,0.08)" stroke-width="1"/>
+          <circle cx="160" cy="160" r="120" fill="none" stroke="rgba(255,107,53,0.15)" stroke-width="1"/>
+          <circle cx="160" cy="160" r="90" fill="none" stroke="rgba(255,107,53,0.25)" stroke-width="1"/>
+          <circle cx="160" cy="160" r="60" fill="none" stroke="rgba(255,107,53,0.4)" stroke-width="1.5"/>
+
+          <!-- Center stream node -->
+          <circle cx="160" cy="160" r="36" fill="rgba(255,107,53,0.18)" stroke="#ff6b35" stroke-width="2"/>
+          <text x="160" y="156" text-anchor="middle" fill="#ff6b35" font-family="Space Grotesk" font-size="11" font-weight="700" letter-spacing="1.5">LIVE</text>
+          <text x="160" y="172" text-anchor="middle" fill="#fff" font-family="Inter" font-size="9">stream</text>
+
+          <!-- ASIN satellites -->
+          <g>
+            <circle cx="50" cy="80" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="50" y="83" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="60" y1="89" x2="138" y2="148" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <g>
+            <circle cx="270" cy="60" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="270" y="63" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="258" y1="70" x2="184" y2="142" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <g>
+            <circle cx="280" cy="200" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="280" y="203" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="266" y1="200" x2="190" y2="170" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <g>
+            <circle cx="220" cy="270" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="220" y="273" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="212" y1="258" x2="180" y2="190" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <g>
+            <circle cx="80" cy="260" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="80" y="263" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="90" y1="250" x2="142" y2="184" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <g>
+            <circle cx="30" cy="170" r="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+            <text x="30" y="173" text-anchor="middle" fill="#fff" font-family="Inter" font-size="8" font-weight="600">ASIN</text>
+            <line x1="44" y1="168" x2="124" y2="162" stroke="rgba(255,107,53,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="section-pad" id="compare">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Compare Honestly</span>
+      <h2>Why the account the stream runs on matters more than the stream itself.</h2>
+      <p>Same content, three different setups. The difference is who owns the asset 12 months from now.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th class="highlight">Brand Live Pro</th>
+            <th>Influencer Account</th>
+            <th>DIY In-House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Stream broadcasts from your brand account</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="no">No</span></td>
+            <td><span class="yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">You own all new followers permanently</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="no">No</span></td>
+            <td><span class="yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Attribution data stays in your account</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="no">No</span></td>
+            <td><span class="yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Streams indexed to your listings</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="meh">Partial</span></td>
+            <td><span class="yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Professional host (no in-house hire)</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="yes">Yes</span></td>
+            <td><span class="no">Build it yourself</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Scripts, production, scheduling handled</td>
+            <td class="highlight"><span class="yes">Fully managed</span></td>
+            <td><span class="meh">Varies</span></td>
+            <td><span class="no">Your team</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Halo effect across full catalog</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="no">Limited</span></td>
+            <td><span class="yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Cost predictability</td>
+            <td class="highlight"><span class="yes">$3K/mo flat</span></td>
+            <td><span class="meh">Per-deal</span></td>
+            <td><span class="no">High &amp; variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> FAQ</span>
+      <h2>The questions sellers actually ask before signing.</h2>
+      <p>Straight answers — no upsell, no fluff.</p>
+    </div>
+
+    <div class="faq-grid">
+      <details class="faq reveal" open>
+        <summary>How do we know this actually works for our category?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          The $150 audit answers this before you commit. We pull your catalog, identify hero ASINs, and benchmark your live-stream-readiness against the categories we've already run. You get a written strategy doc showing the 10-stream content plan, expected Sessions lift, and the specific ASINs we'd anchor on. If the audit shows weak fit, we tell you.
+        </div>
+      </details>
+      <details class="faq reveal" >
+        <summary>What's the realistic timeline for seeing results?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          <strong>Week 1:</strong> audit, strategy doc, account integration, host vetting. <strong>Weeks 2–5:</strong> 10 streams broadcast on schedule. Direct attribution shows up within Amazon's 48-hour reporting window. <strong>Weeks 6+:</strong> the indexing effect compounds. Sessions and Unit Session % continue rising as streams stay live on your listings. Live attribution is fast — but the real lift comes from content compounding over time. We optimize on Sessions, not just last-touch.
+        </div>
+      </details>
+      <details class="faq reveal" >
+        <summary>Who are your hosts and what's their experience?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          Our hosts are vetted on three criteria: <strong>on-camera comfort, Amazon Live Creator app proficiency, and category fluency</strong>. Every host has run multiple paid streams for brands like yours. During account integration (Week 1), you review and approve the specific host assigned to your product before any broadcast goes live.
+        </div>
+      </details>
+      <details class="faq reveal" >
+        <summary>What's the ROI compared to spending the same on PPC?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          Different math. PPC pays for clicks that stop the moment you stop paying. Amazon Live streams stay indexed on your listings <strong>permanently</strong> — the same content keeps driving Sessions, follower growth, and conversion long after the $3K is spent. Single streams have produced $9,056 in attributed sales. One client tracked $102K across 6 months from their stream library. The streams become assets that keep producing.
+        </div>
+      </details>
+      <details class="faq reveal" >
+        <summary>What do I actually need on my end?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          Three things: <strong>(1)</strong> Brand Registry enrollment on your Amazon account. <strong>(2)</strong> Approved access for our team to stream from your brand account. <strong>(3)</strong> 30 minutes per month for the strategy review. That's it. Production, scripting, scheduling, hosting, post-stream reporting — all handled.
+        </div>
+      </details>
+      <details class="faq reveal" >
+        <summary>What happens after the Pilot Month?<span class="plus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-body">
+          You see the data, the lift, and the asset. If it's working, we continue at $3K/month for the next cycle of streams. If it's not, you walk with the streams we've already produced — they stay live on your listings indefinitely. Either way, the content you've built belongs to you.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section-pad" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Two Ways To Start</span>
+      <h2>Audit first. Then decide if the Pilot makes sense.</h2>
+      <p>No long-term contract. No retainer trap. The audit gets credited back if you move forward.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal" id="audit">
+        <span class="price-tag">Start Here</span>
+        <div class="price-name">Audit & Strategy</div>
+        <div class="price-desc">Best for: sellers evaluating whether Amazon Live fits their catalog.</div>
+        <div class="price-num">$150<span class="small">/ one-time</span></div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>30-minute strategy call</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Catalog analysis & hero ASIN selection</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Written 10-stream content plan</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Expected Sessions lift estimate</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Honest fit assessment (we'll tell you if it's wrong)</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>$150 credited back if you start the Pilot Month</li>
+        </ul>
+        <a href="mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit" class="btn btn-ghost">
+          Book the Audit
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="price-card featured reveal" id="audit">
+        <span class="price-tag">Most Sellers Choose This</span>
+        <div class="price-name">Pilot Month</div>
+        <div class="price-desc">Best for: brands ready to build their first 10-stream content asset.</div>
+        <div class="price-num">$3,000<span class="small">/ 4 weeks · 10 streams</span></div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>10 live streams in 4 weeks</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Vetted on-camera host (your approval)</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Scripts, production, scheduling — fully managed</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Streams broadcast from your brand account</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>All followers, data, attribution stay with you</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Monthly metrics review (Sessions, Unit Session %, CTR, attributed sales)</li>
+          <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Streams stay live on your listings permanently</li>
+        </ul>
+        <a href="mailto:hello@brandlivepro.com?subject=Pilot%20Month%20Inquiry" class="btn btn-primary">
+          Start the Pilot
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section-pad" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="final-cta reveal">
+      <h2>The streams already work. <span class="gradient-text">The question is whose account they build.</span></h2>
+      <p>Book the $150 audit. 30 minutes plus a written strategy doc. If the data says Amazon Live isn't your move, we'll tell you. If it is — you'll have the plan in your inbox before the call ends.</p>
+      <a href="mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit" class="btn btn-primary btn-lg">
+        Book Your $150 Audit
+        <span class="arrow">→</span>
+      </a>
+      <div class="final-cta-note">Credited back to your first Pilot Month · No retainer · Honest fit assessment</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span class="logo"><span class="logo-dot"></span> Brand Live Pro</span>
+        <span>Amazon Live, run from your brand account.</span>
+        <span>© 2026 Brand Live Pro. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#how">How It Works</a>
+        <a href="#proof">Proof</a>
+        <a href="#faq">FAQ</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:hello@brandlivepro.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ============ NAV SCROLL STATE ============
+  const nav = document.getElementById('nav');
+  const setNav = () => {
+    if (window.scrollY > 24) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', setNav, { passive: true });
+  setNav();
+
+  // ============ REVEAL ON SCROLL ============
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // ============ FAQ — close others on open ============
+  const faqs = document.querySelectorAll('.faq');
+  faqs.forEach(f => {
+    f.addEventListener('toggle', () => {
+      if (f.open) {
+        faqs.forEach(o => { if (o !== f) o.open = false; });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
