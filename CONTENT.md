@@ -4,7 +4,7 @@
 
 **Title:** Brand Live Pro — Amazon Live Streams That Build Your Brand, Not Someone Else's
 
-**Description:** Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Book a $150 audit.
+**Description:** Fully managed Amazon Live streams broadcast from your own brand account. You keep the followers, the data, the attribution — permanently. Free strategy call.
 
 **Domain:** https://brandlivepro.com
 
@@ -16,7 +16,7 @@
 
 **Logo Text:** Brand Live Pro
 
-**CTA Text:** Book Audit
+**CTA Text:** Book Call
 
 ---
 
@@ -32,15 +32,15 @@ Amazon Live streams that build **your brand** — not someone else's.
 We run live shopping streams directly from your brand-registered Amazon account. You keep every follower, every data point, and every attribution — permanently. Not borrowed. Not rented. Owned.
 
 ### Primary CTA
-Book Your $150 Audit
+Book Your Discovery Call
 
 ### Secondary CTA
 See How It Works
 
 ### Meta Information
-- 30-min strategy call
-- Written audit doc
-- Credited to Pilot Month
+- 30-min 1-on-1 call
+- Honest fit assessment
+- No commitment
 
 ### Hero Metrics
 
@@ -218,7 +218,7 @@ Same content, three different setups. The difference is who owns the asset 12 mo
 
 ### Q: How do we know this actually works for our category?
 
-**A:** The $150 audit answers this before you commit. We pull your catalog, identify hero ASINs, and benchmark your live-stream-readiness against the categories we've already run. You get a written strategy doc showing the 10-stream content plan, expected Sessions lift, and the specific ASINs we'd anchor on. If the audit shows weak fit, we tell you.
+**A:** Book a free 30-minute call. We pull your catalog, identify hero ASINs, and assess your live-stream-readiness against the categories we've already run. We walk you through the 10-stream content plan, expected Sessions lift, and specific ASINs we'd anchor on. If the fit is weak, we tell you straight — no pressure, no followup.
 
 ### Q: What's the realistic timeline for seeing results?
 
@@ -242,40 +242,40 @@ Same content, three different setups. The difference is who owns the asset 12 mo
 
 ---
 
-## Pricing: Two Ways To Start
+## Pricing: One Way To Start
 
 ### Eyebrow
-Two Ways To Start
+One Way To Start
 
 ### Headline
-Audit first. Then decide if the Pilot makes sense.
+Free strategy call. Then decide if the Pilot makes sense.
 
 ### Description
-No long-term contract. No retainer trap. The audit gets credited back if you move forward.
+No long-term contract. No retainer trap. No audit fee. Just a real conversation about fit.
 
 ---
 
-## Pricing Option 1: Audit & Strategy
+## Pricing Option 1: Free Strategy Call
 
 **Tag:** Start Here
 
-**Price:** $150
+**Price:** Free
 
-**Period:** one-time
+**Period:** 30 minutes
 
 ### Features
-- 30-minute strategy call
-- Catalog analysis & hero ASIN selection
-- Written 10-stream content plan
-- Expected Sessions lift estimate
-- Honest fit assessment (we'll tell you if it's wrong)
-- $150 credited back if you start the Pilot Month
+- 30-minute 1-on-1 call
+- Catalog analysis & hero ASIN assessment
+- Honest fit evaluation (we'll tell you if it's wrong)
+- No written audit needed — we explain on the call
+- If it fits, we discuss Pilot Month next steps
+- If it doesn't fit, we tell you and move on
 
 ### CTA
-Book the Audit
+Book Free Call
 
 ### CTA Link
-mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit
+https://calendly.com/brandlivepro-team/30min
 
 ---
 
@@ -302,7 +302,7 @@ mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit
 Start the Pilot
 
 ### CTA Link
-mailto:hello@brandlivepro.com?subject=Pilot%20Month%20Inquiry
+mailto:hello@brandlivepro.com?subject=Pilot%20Month%20Inquiry (or direct from Calendly booking)
 
 ---
 
@@ -312,13 +312,13 @@ mailto:hello@brandlivepro.com?subject=Pilot%20Month%20Inquiry
 The streams already work. **The question is whose account they build.**
 
 ### Body Text
-Book the $150 audit. 30 minutes plus a written strategy doc. If the data says Amazon Live isn't your move, we'll tell you. If it is — you'll have the plan in your inbox before the call ends.
+Book a free strategy call. 30 minutes, no audit fee, no commitment. We assess whether Amazon Live fits your catalog. If it does — we discuss the Pilot Month. If it doesn't — we tell you straight.
 
 ### CTA
-Book Your $150 Audit
+Book Your Discovery Call
 
 ### CTA Link
-mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit
+https://calendly.com/brandlivepro-team/30min
 
 ---
 
@@ -327,3 +327,11 @@ mailto:hello@brandlivepro.com?subject=Book%20$150%20Audit
 This markdown file represents the complete content structure of brandlivepro.com as of the rebuild. All copy, metrics, pricing, FAQs, and process steps are documented here. The actual website is generated dynamically by injecting this content (stored in `content.json`) into the `index.html` template using `build.py`.
 
 To edit the website, modify `content.json` and run `python3 build.py` from the site directory. This markdown serves as a reference document for the content layer.
+
+## Recent Updates (May 2026)
+
+- Pivoted from paid $150 audit to free 30-minute strategy call
+- All CTA buttons now link to https://calendly.com/brandlivepro-team/30min
+- Buttons open in new tab with target="_blank"
+- Updated hero meta, final CTA copy, and meta descriptions
+- Reduced friction for Upwork audience conversion
